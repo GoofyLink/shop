@@ -16,6 +16,10 @@ type (
 		Create(ctx context.Context, in model.RotationCreateInput) (out model.RotationCreateOutput, err error)
 		// Delete 删除 这样删除是软删除还会留着原来的信息
 		Delete(ctx context.Context, id uint) error
+		// Update 修改
+		Update(ctx context.Context, in model.RotationUpdateInput) error
+		// GetList 查询内容列表
+		GetList(ctx context.Context, in model.RotationGetListInput) (out *model.RotationGetListOutput, err error)
 	}
 )
 

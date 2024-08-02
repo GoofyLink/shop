@@ -13,10 +13,10 @@ import (
 type RotationInfo struct {
 	g.Meta    `orm:"table:rotation_info, do:true"`
 	Id        interface{} //
-	PicUrl    interface{} //
-	Link      interface{} //
-	Sort      interface{} //
-	CreateAt  *gtime.Time //
-	UpdateAt  *gtime.Time //
+	PicUrl    interface{} // 轮播图片
+	Link      interface{} // 跳转链接
+	Sort      interface{} // 排序字段
+	CreatedAt *gtime.Time //
+	UpdatedAt *gtime.Time //
 	DeletedAt *gtime.Time //
 }

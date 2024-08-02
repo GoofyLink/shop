@@ -21,11 +21,11 @@ type RotationInfoDao struct {
 // RotationInfoColumns defines and stores column names for table rotation_info.
 type RotationInfoColumns struct {
 	Id        string //
-	PicUrl    string //
-	Link      string //
-	Sort      string //
-	CreateAt  string //
-	UpdateAt  string //
+	PicUrl    string // 轮播图片
+	Link      string // 跳转链接
+	Sort      string // 排序字段
+	CreatedAt string //
+	UpdatedAt string //
 	DeletedAt string //
 }
 
@@ -35,8 +35,8 @@ var rotationInfoColumns = RotationInfoColumns{
 	PicUrl:    "pic_url",
 	Link:      "link",
 	Sort:      "sort",
-	CreateAt:  "create_at",
-	UpdateAt:  "update_at",
+	CreatedAt: "created_at",
+	UpdatedAt: "updated_at",
 	DeletedAt: "deleted_at",
 }
 
