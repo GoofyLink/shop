@@ -19,8 +19,9 @@ var (
 				// json数据返回设置
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Bind(
-					controller.Rotation,
-					controller.Position,
+					controller.Rotation, //轮播图
+					controller.Position, //手工位
+					controller.Admin,    //角色管理
 				)
 			})
 			s.Run()

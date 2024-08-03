@@ -28,7 +28,7 @@ type RotationCreateReq struct {
 }
 
 type RotationCreateRes struct {
-	RotationId int `json:"RotationId"`
+	RotationId int `json:"rotation_id"`
 }
 
 type RotationDeleteReq struct {

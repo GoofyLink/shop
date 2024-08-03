@@ -20,7 +20,7 @@ type PositionCreateInput struct {
 
 // PositionCreateOutput 创建内容返回结果
 type PositionCreateOutput struct {
-	PositionId int `json:"Position_id"`
+	PositionId int `json:"position_id"`
 }
 
 // PositionUpdateInput 修改内容
@@ -66,16 +66,16 @@ type PositionSearchOutput struct {
 }
 
 // ContentListItem 主要用于列表展示
-type PositionListItem struct {
-	Id        uint        `json:"id"` // 自增ID
-	PicUrl    string      `json:"pic_Url"`
-	Link      string      `json:"link"`
-	Sort      int         `json:"sort"` // 排序，数值
-	GoodsName string      `json:"goods_name"`
-	GoodsId   int         `json:"goods_id"`
-	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
-	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
-}
+//type PositionListItem struct {
+//	Id        uint        `json:"id"` // 自增ID
+//	PicUrl    string      `json:"pic_Url"`
+//	Link      string      `json:"link"`
+//	Sort      int         `json:"sort"` // 排序，数值
+//	GoodsName string      `json:"goods_name"`
+//	GoodsId   int         `json:"goods_id"`
+//	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
+//	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
+//}
 
 type PositionGetListOutputItem struct {
 	//Position *PositionListItem `json:"position"`

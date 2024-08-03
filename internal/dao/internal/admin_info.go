@@ -23,11 +23,12 @@ type AdminInfoColumns struct {
 	Id        string //
 	Name      string // 用户名
 	Password  string // 密码
-	RoleIds   string // 角色ids
+	RoleIds   string // 角色id
+	IsAdmin   string // 是否超级管理员
+	UserSalt  string //
 	CreatedAt string //
 	UpdatedAt string //
-	UserSalt  string // 加密盐
-	IsAdmin   string // 是否超级管理员
+	DeletedAt string //
 }
 
 // adminInfoColumns holds the columns for table admin_info.
@@ -36,10 +37,11 @@ var adminInfoColumns = AdminInfoColumns{
 	Name:      "name",
 	Password:  "password",
 	RoleIds:   "role_ids",
+	IsAdmin:   "is_admin",
+	UserSalt:  "user_salt",
 	CreatedAt: "created_at",
 	UpdatedAt: "updated_at",
-	UserSalt:  "user_salt",
-	IsAdmin:   "is_admin",
+	DeletedAt: "deleted_at",
 }
 
 // NewAdminInfoDao creates and returns a new DAO object for table data access.
