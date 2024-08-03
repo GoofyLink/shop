@@ -5,5 +5,6 @@
 package logic
 
 import (
+	_ "shop-v2/internal/logic/Position"
 	_ "shop-v2/internal/logic/Rotation"
 )
