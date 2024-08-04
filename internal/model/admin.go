@@ -74,7 +74,7 @@ type AdminGetListOutput struct {
 
 // 返回接口数据
 type AdminGetListOutputItem struct {
-	//Admin *AdminListItem `json:"rotation"`
+	//admin *AdminListItem `json:"rotation"`
 	//Category *AdminListCategoryItem `json:"category"`
 	//User     *AdminListUserItem     `json:"user"`
 	Id        uint        `json:"id"` // 自增ID

@@ -78,7 +78,7 @@ type PositionSearchOutput struct {
 //}
 
 type PositionGetListOutputItem struct {
-	//Position *PositionListItem `json:"position"`
+	//position *PositionListItem `json:"position"`
 	//Category *PositionListCategoryItem `json:"category"`
 	//User     *PositionListUserItem     `json:"user"`
 	Id        uint        `json:"id"` // 自增ID

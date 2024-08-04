@@ -5,7 +5,11 @@
 package logic
 
 import (
-	_ "shop-v2/internal/logic/Admin"
-	_ "shop-v2/internal/logic/Position"
-	_ "shop-v2/internal/logic/Rotation"
+	_ "shop-v2/internal/logic/admin"
+	_ "shop-v2/internal/logic/bizctx"
+	_ "shop-v2/internal/logic/login"
+	_ "shop-v2/internal/logic/middleware"
+	_ "shop-v2/internal/logic/position"
+	_ "shop-v2/internal/logic/rotation"
+	_ "shop-v2/internal/logic/session"
 )

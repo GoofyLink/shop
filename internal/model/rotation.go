@@ -72,7 +72,7 @@ type RotationListItem struct {
 }
 
 type RotationGetListOutputItem struct {
-	//Rotation *RotationListItem `json:"rotation"`
+	//rotation *RotationListItem `json:"rotation"`
 	//Category *RotationListCategoryItem `json:"category"`
 	//User     *RotationListUserItem     `json:"user"`
 	Id        uint        `json:"id"` // 自增ID
