@@ -93,3 +93,13 @@ func (s *sMiddleware) Ctx(r *ghttp.Request) {
 //	}
 //	r.Middleware.Next()
 //}
+
+func (s *sMiddleware) CORS(r *ghttp.Request) {
+	r.Response.CORSDefault()
+	r.Middleware.Next()
+}
+
+func (s *sMiddleware) Auth(r *ghttp.Request) {
+	service.Auth().MiddlewareFunc()(r)
+	r.Middleware.Next()
+}

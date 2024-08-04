@@ -2,6 +2,7 @@ package controller
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/util/gconv"
 	"shop-v2/api/backend/v1"
 	"shop-v2/internal/model"
 	"shop-v2/internal/service"
@@ -59,5 +60,14 @@ func (a *cAdmin) List(ctx context.Context, req *v1.AdminGetListCommonReq) (res *
 		Page:  getListRes.Page,
 		Size:  getListRes.Size,
 		Total: getListRes.Total,
+	}, nil
+}
+
+// 获取用户信息
+func (c *cAdmin) Info(ctx context.Context, req *v1.AdminGetInfoReq) (res *v1.AdminGetInfoRes, err error) {
+	return &v1.AdminGetInfoRes{
+		Id:          gconv.Int(service.Auth().GetIdentity(ctx)),
+		IdentityKey: service.Auth().IdentityKey,
+		Payload:     service.Auth().GetPayload(ctx),
 	}, nil
 }

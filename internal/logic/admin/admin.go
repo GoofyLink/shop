@@ -117,3 +117,23 @@ func (s *sAdmin) GetList(ctx context.Context, in model.AdminGetListInput) (out *
 	}
 	return
 }
+
+// 获取admin密码
+func (s *sAdmin) GetAdminByUserNamePassword(ctx context.Context, in model.LoginInput) map[string]interface{} {
+	// todo 对接DB
+	//验证账号密码是否正确
+	adminInfo := entity.AdminInfo{}
+	err := dao.AdminInfo.Ctx(ctx).Where("name", in.Name).Scan(&adminInfo)
+	if err != nil {
+		return nil
+	}
+	// 获取的加密字符和DB里面的字符比较
+	if utility.EncryptPassword(in.Password, adminInfo.UserSalt) != adminInfo.Password {
+		return nil
+	} else {
+		return g.Map{
+			"id":       adminInfo.Id,
+			"username": adminInfo.Name,
+		}
+	}
+}

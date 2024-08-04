@@ -24,11 +24,21 @@ var (
 					service.Middleware().ResponseHandler,
 				)
 				group.Bind(
-					controller.Rotation, //轮播图
-					controller.Position, //手工位
-					controller.Admin,    //角色管理
-					controller.Login,    // 登录
+					controller.Rotation,     //轮播图
+					controller.Position,     //手工位
+					controller.Admin.Create, //角色管理
+					controller.Admin.Update,
+					controller.Admin.Delete,
+					controller.Admin.List,
+					controller.Login, // 登录
 				)
+
+				group.Group("/", func(group *ghttp.RouterGroup) {
+					group.Middleware(service.Middleware().Auth)
+					group.ALLMap(g.Map{
+						"/backend/v1/admin/info": controller.Admin.Info,
+					})
+				})
 			})
 			s.Run()
 			return nil
