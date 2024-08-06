@@ -58,8 +58,17 @@ type AdminGetInfoReq struct {
 	g.Meta `path:"/backend/v1/admin/info" method:"post"`
 }
 
+// jwt
+//type AdminGetInfoRes struct {
+//	Id          int    `json:"id"`
+//	IdentityKey string `json:"identity_key"`
+//	Payload     string `json:"payload"`
+//}
+
+// for token
 type AdminGetInfoRes struct {
-	Id          int    `json:"id"`
-	IdentityKey string `json:"identity_key"`
-	Payload     string `json:"payload"`
+	Id      int    `json:"id"`
+	Name    string `json:"name"        v:"required#姓名"      dc:"姓名"`
+	RoleIds string `json:"role_ids"    dc:"角色权限"`
+	IsAdmin int    `json:"goods_name"  dc:"是否超级管理员"`
 }

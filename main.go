@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "github.com/gogf/gf/contrib/drivers/mysql/v2"
+	_ "github.com/gogf/gf/contrib/nosql/redis/v2"
 
 	_ "shop-v2/internal/packed"
 

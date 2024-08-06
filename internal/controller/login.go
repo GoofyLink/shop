@@ -25,11 +25,14 @@ type cLogin struct{}
 //	return
 //}
 
-func (c *cLogin) Login(ctx context.Context, req *v1.LoginDoReq) (res *v1.LoginDoRes, err error) {
-	res = &v1.LoginDoRes{}
-	res.Token, res.Expire = service.Auth().LoginHandler(ctx)
-	return
-}
+// for jwt
+//func (c *cLogin) Login(ctx context.Context, req *v1.LoginDoReq) (res *v1.LoginDoRes, err error) {
+//	res = &v1.LoginDoRes{}
+//	res.Token, res.Expire = service.Auth().LoginHandler(ctx)
+//	return
+//}
+
+// 登录处理
 
 func (c *cLogin) RefreshToken(ctx context.Context, req *v1.RefreshTokenReq) (res *v1.RefreshTokenRes, err error) {
 	res = &v1.RefreshTokenRes{}

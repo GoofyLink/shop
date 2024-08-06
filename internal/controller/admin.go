@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/gogf/gf/v2/util/gconv"
 	"shop-v2/api/backend/v1"
+	"shop-v2/internal/consts"
 	"shop-v2/internal/model"
 	"shop-v2/internal/service"
 )
@@ -63,11 +64,21 @@ func (a *cAdmin) List(ctx context.Context, req *v1.AdminGetListCommonReq) (res *
 	}, nil
 }
 
-// 获取用户信息
+//for jwt 获取用户信息
+//func (c *cAdmin) Info(ctx context.Context, req *v1.AdminGetInfoReq) (res *v1.AdminGetInfoRes, err error) {
+//	return &v1.AdminGetInfoRes{
+//		Id:          gconv.Int(service.Auth().GetIdentity(ctx)),
+//		IdentityKey: service.Auth().IdentityKey,
+//		Payload:     service.Auth().GetPayload(ctx),
+//	}, nil
+//}
+
+// for gtoken
 func (c *cAdmin) Info(ctx context.Context, req *v1.AdminGetInfoReq) (res *v1.AdminGetInfoRes, err error) {
 	return &v1.AdminGetInfoRes{
-		Id:          gconv.Int(service.Auth().GetIdentity(ctx)),
-		IdentityKey: service.Auth().IdentityKey,
-		Payload:     service.Auth().GetPayload(ctx),
+		Id:      gconv.Int(ctx.Value(consts.CtxAdminId)),
+		Name:    gconv.String(ctx.Value(consts.CtxAdminName)),
+		RoleIds: gconv.String(ctx.Value(consts.CtxAdminRoleIds)),
+		IsAdmin: gconv.Int(ctx.Value(consts.CtxAdminId)),
 	}, nil
 }

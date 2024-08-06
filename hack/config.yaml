@@ -26,3 +26,13 @@ database:
     name:          "shop2"
     type:          "mysql"
     debug:         "true"
+
+
+# Redis 配置示例
+redis:
+  # 单实例配置示例1
+  default:
+    address: 127.0.0.1:6377
+    db: 1
+    pass: szj123456
+    idleTimeout: 600
