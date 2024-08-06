@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"shop-v2/api/backend/v1"
+	frontend "shop-v2/api/frontend/v1"
 	"shop-v2/internal/model"
 	"shop-v2/internal/service"
 )
@@ -59,5 +60,22 @@ func (a *cRotation) List(ctx context.Context, req *v1.RotationGetListCommonReq) 
 		Page:  getListRes.Page,
 		Size:  getListRes.Size,
 		Total: getListRes.Total,
+	}, nil
+}
+
+func (a *cRotation) ListFrontend(ctx context.Context, req *frontend.RotationGetListCommonReq) (res *frontend.RotationGetListCommonRes, err error) {
+	getListRes, err := service.Rotation().GetList(ctx, model.RotationGetListInput{
+		Page: req.Page,
+		Size: req.Size,
+		Sort: req.Sort,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &frontend.RotationGetListCommonRes{
+		List: getListRes.List,
+		Page: getListRes.Page,
+		Size: getListRes.Size,
+		//Total: getListRes.Total,
 	}, nil
 }
