@@ -10,4 +10,7 @@ const (
 	CtxAdminName             = "CtxAdminName"
 	CtxAdminIsAdmin          = "CtxAdminIsAdmin"
 	CtxAdminRoleIds          = "CtxAdminRoleIds"
+	CtxRoleId                = "CtxRoleId"
+	CtxRoleName              = "CtxRoleName"
+	CtxRoleDesc              = "CtxRoleDesc"
 )

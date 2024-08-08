@@ -60,8 +60,10 @@ var (
 					controller.Admin.Update,
 					controller.Admin.Delete,
 					controller.Admin.List,
-					controller.Login, // 登录
-					controller.Data,  // 数据大屏
+					controller.Login,      // 登录
+					controller.Data,       // 数据大屏
+					controller.Role,       // 角色
+					controller.Permission, // 角色权限
 				)
 
 				group.Group("/", func(group *ghttp.RouterGroup) {
