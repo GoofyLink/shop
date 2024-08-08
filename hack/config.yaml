@@ -26,7 +26,7 @@ database:
     name:          "shop2"
     type:          "mysql"
     debug:         "true"
-
+    extra: loc=local
 
 # Redis 配置示例
 redis:

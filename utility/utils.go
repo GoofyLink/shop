@@ -285,10 +285,10 @@ func CreateLogSn(prefix string) string {
 }
 
 // 获取随机整数
-func RandInt(max int) int {
-	rand.Seed(time.Now().UnixNano())
-	return rand.Intn(max)
-}
+//func RandInt(max int) int {
+//	rand.Seed(time.Now().UnixNano())
+//	return rand.Intn(max)
+//}
 
 //获取今天的开始时间 0点
 //gtime.New(time.Now()).StartOfDay()
@@ -299,3 +299,9 @@ func RandInt(max int) int {
 //日期范围查询
 //whereCondition.Set(dao.UserInfo.Columns.CreatedAt+" >=", gtime.New(req.Date).StartOfDay())
 //whereCondition.Set(dao.UserInfo.Columns.CreatedAt+" <=", gtime.New(req.Date).EndOfDay())
+
+// 获取随机整数
+func RandInt(max int) int {
+	rand.Seed(time.Now().UnixNano())
+	return rand.Intn(max)
+}
