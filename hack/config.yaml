@@ -36,3 +36,12 @@ redis:
     db: 1
     pass: szj123456
     idleTimeout: 600
+
+upload:
+  path: "upload"
+
+qiniu:
+  bucket: "goofyimg"  # 七牛云存储空间名
+  accessKey: "zyeI_gv-qWUoSQVO_7XxGo2OJrPrfPBLGzJhi9hX"
+  secretKey: "zyeI_gv-qWUoSQVO_7XxGo2OJrPrfPBLGzJhi9hX"
+  url: "shyfvg5t4.hn-bkt.clouddn.com" #域名
