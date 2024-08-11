@@ -41,7 +41,7 @@ upload:
   path: "upload"
 
 qiniu:
-  bucket: "goofyimg"  # 七牛云存储空间名
-  accessKey: "zyeI_gv-qWUoSQVO_7XxGo2OJrPrfPBLGzJhi9hX"
-  secretKey: "zyeI_gv-qWUoSQVO_7XxGo2OJrPrfPBLGzJhi9hX"
-  url: "shyfvg5t4.hn-bkt.clouddn.com" #域名
+  bucket: goofyimg  # 七牛云存储空间名
+  accessKey: zyeI_gv-qWUoSQVO_7XxGo2OJrPrfPBLGzJhi9hX
+  secretKey: 0P6x16WOUpUNC87y1omb-cTfoGIxg7sY-RDiXjBY
+  url: shyfvg5t4.hn-bkt.clouddn.com #域名
