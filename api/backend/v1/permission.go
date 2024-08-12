@@ -9,7 +9,7 @@ type PermissionCreateUpdateBase struct {
 
 // 创建权限
 type PermissionReq struct {
-	g.Meta `path:"/backend/v1/permission/add" method:"post" desc:"添加权限" tags:"permission"`
+	g.Meta `path:"/v1/permission/add" method:"post" desc:"添加权限" tags:"permission"`
 	PermissionCreateUpdateBase
 }
 
@@ -19,7 +19,7 @@ type PermissionRes struct {
 
 // 修改编辑权限
 type PermissionUpdateReq struct {
-	g.Meta `path:"/backend/v1/permission/update" method:"post" desc:"修改权限" tags:"permission"`
+	g.Meta `path:"/v1/permission/update" method:"post" desc:"修改权限" tags:"permission"`
 	Id     int `json:"id" v:"required#id必填" dc:"权限id"`
 	PermissionCreateUpdateBase
 }
@@ -30,7 +30,7 @@ type PermissionUpdateRes struct {
 
 // 删除权限
 type PermissionDeleteReq struct {
-	g.Meta `path:"/backend/v1/permission/delete" method:"delete" tags:"权限" summary:"删除权限接口"`
+	g.Meta `path:"/v1/permission/delete" method:"delete" tags:"权限" summary:"删除权限接口"`
 	Id     uint `v:"min:1#请选择需要删除的内容" dc:"内容id"`
 }
 
@@ -41,7 +41,7 @@ type PermissionDeleteRes struct {
 
 // 获取权限列表
 type PermissionGetListCommonReq struct {
-	g.Meta `path:"/backend/v1/permission/List" method:"get" tags:"权限" summary:"商品列表"`
+	g.Meta `path:"/v1/permission/List" method:"get" tags:"权限" summary:"商品列表"`
 	CommonPaginationReq
 }
 type PermissionGetListCommonRes struct {

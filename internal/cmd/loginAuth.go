@@ -23,10 +23,10 @@ func StartBackendGToken() (gfAdminToken *gtoken.GfToken, err error) {
 		ServerName: consts.BackendServerName,
 		CacheMode:  consts.CacheModeRedis, //gredis  防止关闭服务后token失效  将token缓存到redis中
 		//Timeout:          10 * 1000,
-		LoginPath:        "/backend/v1/login",
+		LoginPath:        "/v1/login",
 		LoginBeforeFunc:  login,
 		LoginAfterFunc:   loginAfterFunc,
-		LogoutPath:       "/backend/v1/logout",
+		LogoutPath:       "/v1/logout",
 		AuthPaths:        g.SliceStr{"/backend/v1/admin/info"},
 		AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径 /user/info,/system/user/info,/system/user,
 		MultiLogin:       consts.MultiLogin,                                         // 是否启用多端登录

@@ -5,7 +5,7 @@ import (
 )
 
 type AdminCreateReq struct {
-	g.Meta   `path:"/backend/v1/admin/add" method:"post" tags:"用户" summary:"管理员"`
+	g.Meta   `path:"/v1/admin/add" method:"post" tags:"用户" summary:"管理员"`
 	Name     string `json:"name"        v:"required#姓名"      dc:"姓名"`
 	Password string `json:"password"    v:"required#密码"      dc:"密码"`
 	RoleIds  string `json:"role_ids"    dc:"角色权限"`
@@ -17,7 +17,7 @@ type AdminCreateRes struct {
 }
 
 type AdminDeleteReq struct {
-	g.Meta `path:"/backend/v1/admin/delete" method:"delete" tags:"管理员" summary:"删除管理员接口"`
+	g.Meta `path:"/v1/admin/delete" method:"delete" tags:"管理员" summary:"删除管理员接口"`
 	Id     uint `v:"min:1#请选择需要删除的内容" dc:"内容id"`
 }
 
@@ -27,7 +27,7 @@ type AdminDeleteRes struct {
 }
 
 type AdminUpdateReq struct {
-	g.Meta   `path:"/backend/v1/admin/{Id}" method:"post" tags:"管理员" summary:"修改管理员接口"`
+	g.Meta   `path:"/v1/admin/{Id}" method:"post" tags:"管理员" summary:"修改管理员接口"`
 	Id       int    `json:"id"    v:"required#内容Id不能为空" dc:"ID"`
 	Name     string `json:"name"        v:"required#姓名"      dc:"姓名"`
 	Password string `json:"password"    v:"required#密码"      dc:"密码"`
@@ -41,7 +41,7 @@ type AdminUpdateRes struct {
 }
 
 type AdminGetListCommonReq struct {
-	g.Meta `path:"/backend/v1/admin/List" method:"get" tags:"内容" summary:"商品列表"`
+	g.Meta `path:"/v1/admin/List" method:"get" tags:"内容" summary:"商品列表"`
 	CommonPaginationReq
 }
 type AdminGetListCommonRes struct {
@@ -55,7 +55,7 @@ type AdminGetListCommonRes struct {
 
 // 用户信息
 type AdminGetInfoReq struct {
-	g.Meta `path:"/backend/v1/admin/info" method:"post"`
+	g.Meta `path:"/v1/admin/info" method:"post"`
 }
 
 // jwt

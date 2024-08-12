@@ -5,7 +5,7 @@ import (
 )
 
 type PositionGetListCommonReq struct {
-	g.Meta `path:"/backend/v1/position/List" method:"get" tags:"内容" summary:"商品列表"`
+	g.Meta `path:"/v1/position/List" method:"get" tags:"内容" summary:"商品列表"`
 	Sort   int `json:"sort"   in:"query" dc:"排序类型"`
 	CommonPaginationReq
 }
@@ -20,7 +20,7 @@ type PositionGetListCommonRes struct {
 }
 
 type PositionCreateReq struct {
-	g.Meta    `path:"/backend/v1/position/add" method:"post" tags:"内容" summary:"图片接口"`
+	g.Meta    `path:"/v1/position/add" method:"post" tags:"内容" summary:"图片接口"`
 	Id        int    `json:"id"    v:"required#内容Id不能为空" dc:"ID"`
 	Pic_url   string `json:"pic_url"    v:"required#图片"      dc:"图片地址"`
 	Link      string `json:"link"   v:"required#图片跳转链接"      dc:"图片跳转连接"`
@@ -34,7 +34,7 @@ type PositionCreateRes struct {
 }
 
 type PositionDeleteReq struct {
-	g.Meta `path:"/backend/v1/position/delete" method:"delete" tags:"商品" summary:"删除商品接口"`
+	g.Meta `path:"/v1/position/delete" method:"delete" tags:"商品" summary:"删除商品接口"`
 	Id     uint `v:"min:1#请选择需要删除的内容" dc:"内容id"`
 }
 
@@ -44,7 +44,7 @@ type PositionDeleteRes struct {
 }
 
 type PositionUpdateReq struct {
-	g.Meta    `path:"/backend/v1/position/{Id}" method:"post" tags:"商品" summary:"修改商品接口"`
+	g.Meta    `path:"/v1/position/{Id}" method:"post" tags:"商品" summary:"修改商品接口"`
 	Id        int    `json:"id"    v:"required#内容Id不能为空" dc:"ID"`
 	Pic_url   string `json:"pic_url"    v:"required#图片链接"      dc:"图片地址"`
 	Link      string `json:"link"   v:"required#图片跳转链接"      dc:"图片跳转连接"`

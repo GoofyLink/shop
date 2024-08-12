@@ -6,7 +6,7 @@ import (
 )
 
 type UploadImgToCloudReq struct {
-	g.Meta `path:"/backend/v1/upload" method:"post"  mime:"multipart/form-data" tags:"上传" summary:"文件上传到云"`
+	g.Meta `path:"/v1/upload" method:"post"  mime:"multipart/form-data" tags:"上传" summary:"文件上传到云"`
 	File   *ghttp.UploadFile `json:"file" type:"file" dc:"选择上传文件"`
 }
 

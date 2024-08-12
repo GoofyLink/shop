@@ -3,7 +3,7 @@ package v1
 import "github.com/gogf/gf/v2/frame/g"
 
 type DataHeadCardReq struct {
-	g.Meta `path:"/backend/v1/data/head" method:"get" tags:"数据data" desc:"数据大屏的头部信息"`
+	g.Meta `path:"/v1/data/head" method:"get" tags:"数据data" desc:"数据大屏的头部信息"`
 }
 
 type DataHeadRes struct {
