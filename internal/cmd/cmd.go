@@ -100,7 +100,9 @@ var (
 					}
 					//需要登录鉴权的接口
 					group.Bind(
-						controller.User.Info)
+						controller.User.Info,           // 获取当前用户信息
+						controller.User.UpdatePassword, // 当前用户修改密码
+					)
 				})
 			})
 

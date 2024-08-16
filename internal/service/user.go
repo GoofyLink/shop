@@ -12,8 +12,10 @@ import (
 
 type (
 	IUser interface {
-		// Create 创建内容
+		// Register 创建内容
 		Register(ctx context.Context, in model.RegisterInput) (out model.RegisterOutPut, err error)
+		// UpdatePassword 修改密码
+		UpdatePassword(ctx context.Context, in model.UpdatePasswordInput) (out model.UpdatePasswordOutPut, err error)
 	}
 )
 

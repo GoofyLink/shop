@@ -37,3 +37,17 @@ func (c *cUser) Info(ctx context.Context, req *v1.UserInfoReq) (res *v1.UserInfo
 	res.Status = gconv.Uint8(ctx.Value(consts.CtxUserStatus))
 	return res, nil
 }
+
+// 返回ID
+func (c *cUser) UpdatePassword(ctx context.Context, req *v1.UpdatePasswordReq) (res *v1.UpdatePasswordRes, err error) {
+	data := model.UpdatePasswordInput{}
+	err = gconv.Struct(req, &data)
+	if err != nil {
+		return nil, err
+	}
+	out, err := service.User().UpdatePassword(ctx, data)
+	if err != nil {
+		return nil, err
+	}
+	return &v1.UpdatePasswordRes{Id: out.Id}, nil
+}

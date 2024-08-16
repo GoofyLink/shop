@@ -49,3 +49,15 @@ type UserInfoReq struct {
 type UserInfoRes struct {
 	UserInfoBase
 }
+
+// 修改密码
+type UpdatePasswordReq struct {
+	g.Meta       `path:"/v1/user/update/password" method:"post" tags:"前台用户" summary:"修改密码"`
+	Password     string `json:"password" v:"password" dc:"mm"`
+	UserSalt     string `json:"user_salt,omitempty" dc:"加盐，加密"`
+	SecretAnswer string `json:"secret_answer" dc:"密保问题答案"`
+}
+
+type UpdatePasswordRes struct {
+	Id uint `json:"id"`
+}

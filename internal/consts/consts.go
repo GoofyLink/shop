@@ -33,4 +33,5 @@ const (
 	MultiLogin           = true
 	FrontendMultiLogin   = false
 	ErrorLoginFailedMsg  = "账号或密码错误"
+	ErrorSecretAnswer    = "密保问题不正确"
 )
