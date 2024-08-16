@@ -2,6 +2,7 @@ package collection
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/util/gconv"
 	"shop-v2/internal/consts"
 	"shop-v2/internal/dao"
@@ -19,6 +20,7 @@ func New() *sCollection {
 	return &sCollection{}
 }
 
+// 添加
 func (s *sCollection) AddCollection(ctx context.Context, in model.AddCollectionInput) (out model.AddCollectionOutPut, err error) {
 	// 获取到userId
 	in.UserId = gconv.Uint(ctx.Value(consts.CtxUserId))
@@ -50,6 +52,7 @@ func (s *sCollection) DeleteCollection(ctx context.Context, in model.DeleteColle
 	}
 }
 
+// 获取collectionList列表
 func (s *sCollection) CollectionList(ctx context.Context, in model.CollectionListInput) (out *model.CollectionListOutput, err error) {
 	var (
 		m = dao.CollectionInfo.Ctx(ctx)
@@ -88,4 +91,37 @@ func (s *sCollection) CollectionList(ctx context.Context, in model.CollectionLis
 		}
 	}
 	return
+}
+
+// 抽取获得收藏数量的方法 for 文章详情/商品详情
+func (s *sCollection) CollectionCount(ctx context.Context, objectId uint, collectionType uint8) (count int, err error) {
+	condition := g.Map{
+		dao.CollectionInfo.Columns().ObjectId: objectId,
+		dao.CollectionInfo.Columns().Type:     collectionType,
+	}
+
+	count, err = dao.CollectionInfo.Ctx(ctx).Where(condition).Count()
+	if err != nil {
+		return 0, err
+	}
+	return
+}
+
+// 抽取方法判断当前用户是否收藏 文章详情/商品详情
+func (s *sCollection) CollectionCheck(ctx context.Context, in model.CheckIsCollectionInput) (bool, error) {
+	condition := g.Map{
+		dao.CollectionInfo.Columns().UserId:   ctx.Value(consts.CtxUserId),
+		dao.CollectionInfo.Columns().ObjectId: in.ObjectId,
+		dao.CollectionInfo.Columns().Type:     in.Type,
+	}
+	count, err := dao.CollectionInfo.Ctx(ctx).Where(condition).Count()
+	if err != nil {
+		return false, err
+	}
+
+	if count > 0 {
+		return true, nil
+	} else {
+		return false, nil
+	}
 }
