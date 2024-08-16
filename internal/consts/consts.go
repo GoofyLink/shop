@@ -10,17 +10,27 @@ const (
 	//文件相关
 	FileMaxUploadCountMinute = 10       // 同一用户1分钟之内最大上传数量
 	GtoKenAdminPrefix        = "admin:" // 唯一标识
+	GtoKenUserPrefix         = "user:"
 	CtxAdminId               = "CtxAdminId"
 	CtxAdminName             = "CtxAdminName"
 	CtxAdminIsAdmin          = "CtxAdminIsAdmin"
 	CtxAdminRoleIds          = "CtxAdminRoleIds"
-	CtxRoleId                = "CtxRoleId"
-	CtxRoleName              = "CtxRoleName"
-	CtxRoleDesc              = "CtxRoleDesc"
-	CodeMissingParameter     = "请检查是否缺少参数"
-	CacheModeRedis           = 2
-	GTokenExpireIn           = 10 * 24 * 60 * 60
-	BackendServerName        = "shop"
-	MultiLogin               = true
-	ErrorLoginFailedMsg      = "账号或密码错误"
+	// 用户登录
+	CtxUserId            = "CtxUserId"
+	CtxUserName          = "CtxUserName"
+	CtxUserAvatar        = "CtxUserAvatar"
+	CtxUserSex           = "CtxUserSex"
+	CtxUserSign          = "CtxUserSign"
+	CtxUserStatus        = "CtxUserStatus"
+	CtxRoleId            = "CtxRoleId"
+	CtxRoleName          = "CtxRoleName"
+	CtxRoleDesc          = "CtxRoleDesc"
+	CodeMissingParameter = "请检查是否缺少参数"
+	TokenType            = "Bearer"
+	CacheModeRedis       = 2
+	GTokenExpireIn       = 10 * 24 * 60 * 60
+	BackendServerName    = "shop"
+	MultiLogin           = true
+	FrontendMultiLogin   = false
+	ErrorLoginFailedMsg  = "账号或密码错误"
 )

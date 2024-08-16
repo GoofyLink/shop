@@ -25,6 +25,7 @@ var (
 				return err
 			}
 
+			// 管理后台路由组
 			s.Group("/backend", func(group *ghttp.RouterGroup) {
 				// json数据返回设置
 				//group.Middleware(ghttp.MiddlewareHandlerResponse)
@@ -36,16 +37,8 @@ var (
 
 				// 不需要登录验证的路由
 				group.Bind(
-					controller.Rotation,     //轮播图
-					controller.Position,     //手工位
-					controller.Admin.Create, //角色管理
-					controller.Admin.Update,
-					controller.Admin.Delete,
+					controller.Admin.Create, //角色管理 注册
 					controller.Admin.List,
-					controller.Login,      // 登录
-					controller.Data,       // 数据大屏
-					controller.Role,       // 角色
-					controller.Permission, // 角色权限
 				)
 
 				// 需要登录绑定的路由
@@ -56,10 +49,19 @@ var (
 					if err != nil {
 						panic(err)
 					}
-					group.ALLMap(g.Map{
-						"/v1/admin/info": controller.Admin.Info,
-					})
+					//group.ALLMap(g.Map{ 这样也可以写
+					//	"/v1/admin/info": controller.Admin.Info,
+					//})
 					group.Bind(
+						controller.Admin.Update,
+						controller.Admin.Delete,
+						controller.Login,        // 登录
+						controller.Data,         // 数据大屏
+						controller.Role,         // 角色
+						controller.Permission,   // 角色权限
+						controller.Admin.Info,   // 查询当前管理员信息
+						controller.Rotation,     //轮播图
+						controller.Position,     //手工位
 						controller.File,         //从0到一实现文件入库
 						controller.Upload,       //实现可跨项目使用的文件上云工具类
 						controller.Category,     //商品分类管理
@@ -71,6 +73,37 @@ var (
 					)
 				})
 			})
+			// 前台项目路由组
+			frontendToken, err := StartFrontendGToken()
+			s.Group("/frontend", func(group *ghttp.RouterGroup) {
+
+				group.Middleware(
+					service.Middleware().CORS,
+					service.Middleware().Ctx,
+					service.Middleware().ResponseHandler,
+				)
+
+				// 不需要登录验证的路由 todo
+				group.Bind(
+					controller.User.Register, //用户注册
+					// 当前登录用户信息
+					//controller.User.Login,    // 用户登录
+					//controller.Admin.Create, //角色管理 注册
+					//controller.Admin.List,
+				)
+
+				// 需要登录鉴权的路由组 todo
+				group.Group("/", func(group *ghttp.RouterGroup) {
+					err := frontendToken.Middleware(ctx, group)
+					if err != nil {
+						return
+					}
+					//需要登录鉴权的接口
+					group.Bind(
+						controller.User.Info)
+				})
+			})
+
 			s.Run()
 			return nil
 		},
