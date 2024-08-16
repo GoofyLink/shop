@@ -102,10 +102,10 @@ var (
 					group.Bind(
 						controller.User.Info,           // 获取当前用户信息
 						controller.User.UpdatePassword, // 当前用户修改密码
+						controller.Collection,          // 收藏
 					)
 				})
 			})
-
 			s.Run()
 			return nil
 		},

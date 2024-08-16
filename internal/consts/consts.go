@@ -34,4 +34,7 @@ const (
 	FrontendMultiLogin   = false
 	ErrorLoginFailedMsg  = "账号或密码错误"
 	ErrorSecretAnswer    = "密保问题不正确"
+	// 收藏
+	CollectionTypeGoods   = 1
+	CollectionTypeArticle = 2
 )

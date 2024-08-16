@@ -9,6 +9,7 @@ import (
 	_ "shop-v2/internal/logic/article"
 	_ "shop-v2/internal/logic/bizctx"
 	_ "shop-v2/internal/logic/category"
+	_ "shop-v2/internal/logic/collection"
 	_ "shop-v2/internal/logic/coupon"
 	_ "shop-v2/internal/logic/data"
 	_ "shop-v2/internal/logic/file"
