@@ -86,7 +86,7 @@ func (s *sPraise) PraiseList(ctx context.Context, in model.PraiseListInput) (out
 			return out, err
 		}
 	} else {
-		if err := listModel.WithAll().Scan(&out.List); err != nil {
+		if err = listModel.WithAll().Scan(&out.List); err != nil {
 			return out, err
 		}
 	}

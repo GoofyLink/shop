@@ -40,4 +40,7 @@ const (
 	// 点赞
 	PraiseTypeGoods   = 1
 	PraiseTypeArticle = 2
+	// 评论
+	CommentTypeGoods   = 1
+	CommentTypeArticle = 2
 )
